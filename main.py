@@ -1,5 +1,5 @@
 # uvicorn main:app --reload
-
+# uvicorn main:app --host 0.0.0.0 --port 10000
 from fastapi import FastAPI
 import models
 from database import engine
@@ -21,3 +21,7 @@ async def root():
 app.include_router(users.router)
 app.include_router(auth.router)
 app.include_router(todos.router)
+
+if __name__ == '__main__':
+    import uvicorn
+    uvicorn.run(app)
