@@ -1,0 +1,96 @@
+{%include 'layout.html'%}
+
+<div class="mt-5 mb-5 text-3xl">
+  <span class="flex items-center">
+    <span class="h-px flex-1 bg-blue-600"></span>
+    <span class="shrink-0 px-6">To Do List</span>
+    <span class="h-px flex-1 bg-blue-600"></span>
+  </span>
+</div>
+
+<!--
+  Heads up! 👋
+
+  This component comes with some `rtl` classes. Please remove them if they are not needed in your project.
+-->
+
+<div class="overflow-x-auto">
+  <table class="min-w-full divide-y-2 divide-gray-200 bg-white text-sm">
+    <thead class="ltr:text-left rtl:text-right">
+      <tr>
+        <th class="whitespace-nowrap px-4 py-2 font-medium text-gray-900">
+          ID
+        </th>
+        <th class="whitespace-nowrap px-4 py-2 font-medium text-gray-900">
+          Title
+        </th>
+        <th class="whitespace-nowrap px-4 py-2 font-medium text-gray-900">
+          Description
+        </th>
+        <th class="whitespace-nowrap px-4 py-2 font-medium text-gray-900">
+          Completion
+        </th>
+        <th class="whitespace-nowrap px-4 py-2 font-medium text-gray-900">
+          Action
+        </th>
+        <th class="px-4 py-2"></th>
+      </tr>
+    </thead>
+
+    <tbody class="text-center divide-y divide-gray-200">
+      {% for todo in todos %}
+
+      <tr>
+        <td class="whitespace-nowrap px-4 py-2 font-medium text-gray-900">
+          {{loop.index}}
+        </td>
+        <td class="whitespace-nowrap px-4 py-2 text-gray-700">
+          {{todo.title}}
+        </td>
+        <td class="whitespace-nowrap px-4 py-2 text-gray-700">
+          {{todo.description}}
+        </td>
+        <td class="whitespace-nowrap px-4 py-2 text-gray-700">
+          {% if todo.complete == False %} Not yet {% else %} Complete {% endif
+          %}
+        </td>
+        <td class="whitespace-nowrap px-4 py-2">
+          {% if todo.complete == False %}
+          <button
+            onclick="window.location.href='complete/{{todo.id}}'"
+            type="button"
+            class="mt-3 mb-3 inline-block w-30 rounded-lg bg-indigo-600 px-5 py-3 text-sm font-medium text-white"
+          >
+            Complete
+          </button>
+          {% else %}
+          <button
+            onclick="window.location.href='complete/{{todo.id}}'"
+            type="button"
+            class="mt-3 mb-3 inline-block w-30 rounded-lg bg-indigo-600 px-5 py-3 text-sm font-medium text-white"
+          >
+            Undo
+          </button>
+          {% endif %}
+
+          <button
+            onclick="window.location.href='edit-todo/{{todo.id}}'"
+            type="button"
+            class="mt-3 mb-3 inline-block w-30 rounded-lg bg-indigo-600 px-5 py-3 text-sm font-medium text-white"
+          >
+            Edit
+          </button>
+
+          <button
+            onclick="window.location.href='/todos/delete/{{todo.id}}'"
+            type="button"
+            class="mt-3 mb-3 inline-block w-30 rounded-lg bg-red-600 px-5 py-3 text-sm font-medium text-white"
+          >
+            Delete
+          </button>
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>

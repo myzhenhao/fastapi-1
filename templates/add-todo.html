@@ -1,0 +1,75 @@
+{%include 'layout.html'%}
+
+<div class="mx-auto max-w-screen-xl px-4 py-16 sm:px-6 lg:px-8">
+  <div class="mx-auto max-w-lg">
+    <h1 class="text-center text-2xl font-bold text-indigo-600 sm:text-3xl">
+      Add your Todo
+    </h1>
+
+    <p class="mx-auto mt-4 max-w-md text-center text-gray-500">
+      Add new todo with title, description, priority and due date
+    </p>
+
+    <form
+      method="POST"
+      class="mb-0 mt-6 space-y-4 rounded-lg p-4 shadow-lg sm:p-6 lg:p-8"
+    >
+      <div>
+        <label for="title" class="block text-xs font-medium text-gray-700">
+          Title
+        </label>
+
+        <input
+          name="title"
+          type="text"
+          id="title"
+          placeholder="Enter any title..."
+          class="mt-1 w-full rounded-md border-gray-200 shadow-sm sm:text-sm"
+        />
+      </div>
+
+      <div>
+        <label
+          for="description"
+          class="block text-sm font-medium text-gray-700"
+        >
+          Description
+        </label>
+
+        <textarea
+          name="description"
+          id="description"
+          class="mt-2 w-full rounded-lg border-gray-200 align-top shadow-sm sm:text-sm"
+          rows="3"
+          placeholder="Enter any description"
+        ></textarea>
+      </div>
+      <div>
+        <label
+          for="HeadlineAct"
+          class="block text-sm font-medium text-gray-900"
+        >
+          Priority
+        </label>
+
+        <select
+          name="priority"
+          id="priority"
+          class="mt-1.5 w-full rounded-lg border-gray-300 text-gray-700 sm:text-sm"
+        >
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+        </select>
+      </div>
+      <button
+        type="submit"
+        class="block w-full rounded-lg bg-indigo-600 px-5 py-3 text-sm font-medium text-white"
+      >
+        Submit
+      </button>
+    </form>
+  </div>
+</div>
