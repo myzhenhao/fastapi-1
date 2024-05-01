@@ -22,6 +22,6 @@ app.include_router(users.router)
 app.include_router(auth.router)
 app.include_router(todos.router)
 
-if __name__ == '__main__':
-    import uvicorn
-    uvicorn.run(app)
+# if __name__ == '__main__':
+#     import uvicorn
+#     uvicorn.run(app)
