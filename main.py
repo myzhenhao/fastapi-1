@@ -7,6 +7,7 @@ from routers import auth, todos, users
 from starlette.staticfiles import StaticFiles
 from starlette import status
 from starlette.responses import RedirectResponse
+import uvicorn
 
 app = FastAPI()
 
@@ -25,3 +26,6 @@ app.include_router(todos.router)
 # if __name__ == '__main__':
 #     import uvicorn
 #     uvicorn.run(app)
+
+if __name__ == "__main__":
+    uvicorn.run("main:app", host="0.0.0.0", port=8000, reload=True)
