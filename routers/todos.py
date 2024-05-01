@@ -52,6 +52,11 @@ async def view_add_new_todo(request: Request):
 
     return templates.TemplateResponse("add-todo.html", {"request": request, "user": user})
 
+@router.get("/about", response_class=HTMLResponse)
+async def about_page(request: Request):
+    return templates.TemplateResponse("about.html", {"request": request})
+
+
 @router.post("/add-todo", response_class=HTMLResponse)
 async def add_new_todo(request: Request,
                             title: str = Form(...),
